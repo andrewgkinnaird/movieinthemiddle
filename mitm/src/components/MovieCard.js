@@ -4,7 +4,12 @@ const MovieCard = (props) => {
     return (
         <div>
             <div className="header">{props.title}</div>
-            <img className={'ui image rounded'} src={`https://image.tmdb.org/t/p/w154/${props.imagePath}`} />
+            {!props.imagePath
+                ? <div className="ui placeholder">
+                    <div  className="image"></div>
+                </div>
+                : <img className={'ui image rounded'} src={`https://image.tmdb.org/t/p/w154/${props.imagePath}`} />
+            }
         </div>
     )
 }
